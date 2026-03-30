@@ -11,11 +11,6 @@
   },
   {
     "agent": "claude",
-    "tip": "Auto memory is per-project. Each project gets its own memory directory at ~/.claude/projects/<project>/memory/, derived from the git repository so all worktrees within the same repo share one directory.",
-    "source": "https://code.claude.com/docs/en/memory"
-  },
-  {
-    "agent": "claude",
     "tip": "Add .mcp.json to your project root to configure project-scoped MCP servers. This file is designed to be checked into version control, ensuring all team members have access to the same MCP tools.",
     "source": "https://code.claude.com/docs/en/mcp"
   },
@@ -28,11 +23,6 @@
     "agent": "claude",
     "tip": "permissions.deny rules apply to Claude's built-in file tools (Read, Edit), not to Bash subprocesses. A deny rule blocks the Read tool but does not prevent cat .env in Bash. For OS-level enforcement, enable the sandbox.",
     "source": "https://code.claude.com/docs/en/permissions"
-  },
-  {
-    "agent": "claude",
-    "tip": "CLAUDE.md files in subdirectories are loaded on demand when Claude reads files in those directories, rather than being loaded at launch.",
-    "source": "https://code.claude.com/docs/en/memory"
   },
   {
     "agent": "claude",
@@ -71,11 +61,6 @@
   },
   {
     "agent": "codex",
-    "tip": "Codex walks from the project root (detected via .git) to your current directory, loading one instruction file per level (AGENTS.override.md, AGENTS.md, or a configured fallback).",
-    "source": "https://developers.openai.com/codex/guides/agents-md"
-  },
-  {
-    "agent": "codex",
     "tip": "Set project_doc_fallback_filenames in config.toml to make Codex read custom instruction filenames when AGENTS.md is missing.",
     "source": "https://developers.openai.com/codex/guides/agents-md"
   },
@@ -101,11 +86,6 @@
   },
   {
     "agent": "gemini",
-    "tip": "Gemini CLI scans subdirectories for context files, limited to 200 directories by default. Configure this with the context.discoveryMaxDirs setting in settings.json.",
-    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
-  },
-  {
-    "agent": "gemini",
     "tip": "Increase context.discoveryMaxDirs in settings.json if Gemini isn't finding your subdirectory GEMINI.md files in large projects.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
   },
@@ -118,11 +98,6 @@
     "agent": "gemini",
     "tip": "Use .geminiignore in your project root (gitignore-style patterns) to exclude files from tools that support this feature, such as the @ file-sharing command.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-ignore.md"
-  },
-  {
-    "agent": "gemini",
-    "tip": "Gemini CLI loads .env files from the current directory upward to the project root, or ~/.env as a fallback. Variables in .gemini/.env are never excluded by the default env-var exclusion filters.",
-    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
   },
   {
     "agent": "gemini",
@@ -181,23 +156,8 @@
   },
   {
     "agent": "cursor",
-    "tip": "Cursor Tab predicts cross-file edits when changes in one file need updates in another. A portal window appears at the bottom of the editor when a cross-file jump is available.",
-    "source": "https://docs.cursor.com/tab/overview"
-  },
-  {
-    "agent": "cursor",
     "tip": "Use @Docs > Add new doc in Cursor Chat to index external documentation for reference. Manage indexed docs under Cursor Settings > Features > Docs.",
     "source": "https://docs.cursor.com/context/@-symbols/@-docs"
-  },
-  {
-    "agent": "antigravity",
-    "tip": "Antigravity stores its data under ~/.gemini/antigravity/ — including conversations/, brain/, global_workflows/, and mcp_config.json.",
-    "source": "https://github.com/google-gemini/gemini-cli/issues/16058"
-  },
-  {
-    "agent": "antigravity",
-    "tip": "When both GEMINI.md and AGENTS.md exist in a directory, Antigravity gives GEMINI.md higher precedence.",
-    "source": "https://antigravity.google/docs/rules-workflows"
   },
   {
     "agent": "antigravity",
@@ -246,11 +206,6 @@
   },
   {
     "agent": "copilot",
-    "tip": "Copilot's coding agent reads AGENTS.md files, alongside .github/copilot-instructions.md, CLAUDE.md, and GEMINI.md.",
-    "source": "https://github.blog/changelog/2025-08-28-copilot-coding-agent-now-supports-agents-md-custom-instructions/"
-  },
-  {
-    "agent": "copilot",
     "tip": "Add copilot-setup-steps.yml to .github/workflows/ to preinstall tools and dependencies in the coding agent's environment before it starts working.",
     "source": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment"
   },
@@ -263,16 +218,6 @@
     "agent": "copilot",
     "tip": "Use github.copilot.chat.commitMessageGeneration.instructions in VS Code settings to enforce Conventional Commits or any format for the sparkle-button commit messages.",
     "source": "https://code.visualstudio.com/docs/copilot/customization/custom-instructions"
-  },
-  {
-    "agent": "general",
-    "tip": "AGENTS.md is supported by Codex, Cursor, Gemini CLI, Copilot, and other coding agents as a shared instruction file format.",
-    "source": "https://developers.openai.com/codex/guides/agents-md"
-  },
-  {
-    "agent": "codex",
-    "tip": "Codex concatenates instruction files from the project root down to your working directory. Files closer to your current directory override earlier guidance because they appear later in the combined prompt.",
-    "source": "https://developers.openai.com/codex/guides/agents-md"
   },
   {
     "agent": "claude",

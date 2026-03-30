@@ -12,6 +12,13 @@
 - Do not include obvious or low-information tips (e.g., "MCP is supported by multiple tools but each has its own config" — not actionable)
 - Be specific and actionable: include concrete file paths, command names, setting keys, etc.
 
+### Actionable, Not Descriptive
+- Tips must be usage tricks that users can immediately apply, not descriptions of how internals work
+- Bad: "Codex concatenates instruction files from root to your working directory" — this just describes a mechanism
+- Good: "Override any config key at runtime with -c key=value" — this tells users what to DO
+- Avoid tips that merely describe: storage locations, loading order, file precedence rules, or what files a tool reads
+- If a mechanism is worth mentioning, frame it as a trick: "Put API-specific rules in subdirectory CLAUDE.md files — they load on demand only when Claude works in that directory, saving context tokens"
+
 ### No Self-Promotion
 - Do not include tips about HarnessKit — it is our own product
 - Self-promotion in tips will annoy users and undermine trust
