@@ -262,21 +262,21 @@
   {
     "agent": "copilot",
     "tip": "Use github.copilot.chat.commitMessageGeneration.instructions in VS Code settings to enforce Conventional Commits or any format for the sparkle-button commit messages.",
-    "source": "https://loiane.com/2025/08/copilot-conventional-commit-messages/"
+    "source": "https://code.visualstudio.com/docs/copilot/customization/custom-instructions"
   },
   {
     "agent": "general",
-    "tip": "AGENTS.md is a cross-tool standard supported by Codex, Cursor, Gemini CLI, Copilot, and 20+ other agents.",
-    "source": "https://agents.md/"
+    "tip": "AGENTS.md is supported by Codex, Cursor, Gemini CLI, Copilot, and other coding agents as a shared instruction file format.",
+    "source": "https://developers.openai.com/codex/guides/agents-md"
   },
   {
-    "agent": "general",
-    "tip": "Most coding agents support hierarchical instruction files — put broad rules at the project root and specific overrides in subdirectories for layered context.",
-    "source": "https://agents.md/"
+    "agent": "codex",
+    "tip": "Codex concatenates instruction files from the project root down to your working directory. Files closer to your current directory override earlier guidance because they appear later in the combined prompt.",
+    "source": "https://developers.openai.com/codex/guides/agents-md"
   },
   {
-    "agent": "general",
-    "tip": "Use AGENTS.md as your canonical base for broad compatibility, and add tool-specific files (CLAUDE.md, .cursorrules) for tool-specific optimization when needed.",
-    "source": "https://thepromptshelf.dev/blog/cursorrules-vs-claude-md/"
+    "agent": "claude",
+    "tip": "Claude Code reads CLAUDE.md, not AGENTS.md. If your repo uses AGENTS.md for other agents, create a CLAUDE.md that imports it with @AGENTS.md so both tools read the same instructions.",
+    "source": "https://code.claude.com/docs/en/memory"
   }
 ]
