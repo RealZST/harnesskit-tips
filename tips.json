@@ -17,11 +17,11 @@
   },
   {
     "agent": "claude",
-    "tip": "Use /memory command to explicitly tell Claude to remember something. It gets saved to a markdown file you can review and edit."
+    "tip": "Use the /memory command to browse, edit, and refresh all loaded CLAUDE.md and memory files. To make Claude remember something, just ask it in conversation."
   },
   {
     "agent": "claude",
-    "tip": "permissions.deny in .claude/settings.json lets you block specific file access patterns — no .claudeignore file needed."
+    "tip": "permissions.deny in .claude/settings.json blocks Claude's built-in Read/Edit tools from accessing matching file patterns. Note: Bash commands like cat can still bypass this."
   },
   {
     "agent": "claude",
@@ -45,11 +45,11 @@
   },
   {
     "agent": "codex",
-    "tip": "Set project_doc_fallback_filenames in config.toml to make Codex read custom instruction filenames like CLAUDE.md or README.md."
+    "tip": "Set project_doc_fallback_filenames in config.toml to make Codex read custom instruction filenames when AGENTS.md is missing."
   },
   {
     "agent": "codex",
-    "tip": "Codex respects .gitignore for context exclusion. There's no separate .codexignore file — use .gitignore patterns instead."
+    "tip": "Codex uses .gitignore to filter the @ file picker, but gitignored files can still be read by the agent. A .codexignore feature is under development for true context exclusion."
   },
   {
     "agent": "gemini",
@@ -69,7 +69,7 @@
   },
   {
     "agent": "gemini",
-    "tip": "Gemini CLI supports .gemini/.env for project-level environment variables — loaded automatically from project and parent directories."
+    "tip": "Gemini CLI loads .env files from the current directory upward to the project root. Variables in .gemini/.env bypass the default env-var exclusion filters."
   },
   {
     "agent": "gemini",
@@ -77,7 +77,7 @@
   },
   {
     "agent": "cursor",
-    "tip": ".cursor/rules/*.mdc files support YAML frontmatter with a paths: field for glob-based rule scoping (e.g., only apply to src/api/**)."
+    "tip": ".cursor/rules/*.mdc files support frontmatter with a globs: field for glob-based rule scoping (e.g., only apply to src/api/**)."
   },
   {
     "agent": "cursor",
@@ -113,11 +113,11 @@
   },
   {
     "agent": "antigravity",
-    "tip": "Use .agents/rules/ in your project for organizing multiple workspace rule files that Antigravity loads automatically."
+    "tip": "Use .agent/rules/ in your project for organizing multiple workspace rule files that Antigravity loads automatically."
   },
   {
     "agent": "antigravity",
-    "tip": "Antigravity supports .agents/workflows/ for step-by-step automation recipes — great for repetitive multi-step tasks."
+    "tip": "Antigravity supports .agent/workflows/ for step-by-step automation recipes — great for repetitive multi-step tasks."
   },
   {
     "agent": "copilot",
@@ -133,7 +133,7 @@
   },
   {
     "agent": "copilot",
-    "tip": "GitHub Copilot CLI stores MCP server config in ~/.copilot/mcp-config.json for global and copilot/mcp-config.json for per-project."
+    "tip": "GitHub Copilot CLI stores MCP server config in ~/.copilot/mcp-config.json for global and .copilot/mcp-config.json for per-project."
   },
   {
     "agent": "copilot",
@@ -149,14 +149,78 @@
   },
   {
     "agent": "general",
-    "tip": "MCP (Model Context Protocol) servers work across Claude, Cursor, Gemini, and Copilot — configure once, use everywhere."
-  },
-  {
-    "agent": "general",
     "tip": "Keep agent-specific rules in their native formats (.cursor/rules/, CLAUDE.md) and shared rules in AGENTS.md for maximum compatibility."
   },
   {
-    "agent": "general",
-    "tip": "Use HarnessKit's Audit feature regularly to check extensions for potential security issues like prompt injection or credential theft."
+    "agent": "claude",
+    "tip": "Press Esc twice to open the rewind dialog — it restores both file edits (via git) and conversation state to any previous checkpoint."
+  },
+  {
+    "agent": "claude",
+    "tip": "Use /btw to ask side questions without polluting conversation context. It runs independently, even while Claude is mid-task, and the Q&A never enters history."
+  },
+  {
+    "agent": "claude",
+    "tip": "Add \"$schema\": \"https://json.schemastore.org/claude-code-settings.json\" to settings.json for full autocomplete and validation in VS Code or Cursor."
+  },
+  {
+    "agent": "claude",
+    "tip": "Use --bare flag with claude -p in CI/CD to skip loading hooks, MCP servers, memory, and CLAUDE.md — faster startup and deterministic behavior across machines."
+  },
+  {
+    "agent": "codex",
+    "tip": "Define named profiles in config.toml under [profiles.<name>] and switch with codex -p fast or codex -p careful — each can override model, sandbox mode, and approval policy."
+  },
+  {
+    "agent": "codex",
+    "tip": "Override any config key at runtime with -c key=value using dotted paths (e.g., -c model=o3 or -c shell_environment_policy.inherit=core) — no file edits needed."
+  },
+  {
+    "agent": "codex",
+    "tip": "Codex auto-strips env vars containing KEY, SECRET, or TOKEN from agent-spawned commands. Customize this via [shell_environment_policy] in config.toml."
+  },
+  {
+    "agent": "gemini",
+    "tip": "Create .toml files in .gemini/commands/ for custom slash commands. Use !{git diff --staged} for shell injection and @{docs/guide.md} for file injection in prompts."
+  },
+  {
+    "agent": "gemini",
+    "tip": "Set context.memoryBoundaryMarkers in settings.json (e.g., [\".git\", \"package.json\"]) to stop GEMINI.md discovery from traversing above your project root in monorepos."
+  },
+  {
+    "agent": "gemini",
+    "tip": "GEMINI.md supports modular imports via @./path/to/file.md syntax — with circular-import detection and up to 5 levels of nesting."
+  },
+  {
+    "agent": "cursor",
+    "tip": "Press Cmd+Right (Mac) or Ctrl+Right to accept a Tab suggestion word-by-word instead of all-or-nothing, then press Tab again to jump to the predicted next edit location."
+  },
+  {
+    "agent": "cursor",
+    "tip": "When a change implies a coordinated edit in another file, Cursor Tab shows a portal window at the bottom — press Tab to accept and auto-jump to the other file."
+  },
+  {
+    "agent": "cursor",
+    "tip": "Use @Docs > Add new doc to index any external documentation URL. Add a trailing slash to the URL to crawl all subpages, not just the single page."
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Use // turbo in workflow steps to auto-execute commands without prompts, // parallel for concurrent steps, and // if [condition] for conditional execution."
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Set terminal.autoExecution to 'Request Review' for a positive security model where only explicitly allow-listed commands can run without approval."
+  },
+  {
+    "agent": "copilot",
+    "tip": "Add copilot-setup-steps.yml to .github/workflows/ to preinstall tools, deps, and services in the coding agent's environment before it starts working."
+  },
+  {
+    "agent": "copilot",
+    "tip": "Type #read/terminalLastCommand in Copilot Chat to auto-attach the last terminal command and its full output as context — no copy-pasting needed."
+  },
+  {
+    "agent": "copilot",
+    "tip": "Use github.copilot.chat.commitMessageGeneration.instructions in VS Code settings to enforce Conventional Commits or any format for the sparkle-button commit messages."
   }
 ]
