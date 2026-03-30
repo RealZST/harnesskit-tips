@@ -1,0 +1,162 @@
+[
+  {
+    "agent": "claude",
+    "tip": "Use @file syntax in CLAUDE.md to import other markdown files, keeping your instructions modular and DRY."
+  },
+  {
+    "agent": "claude",
+    "tip": "Create multiple .md files in .claude/rules/ — each can have a paths: frontmatter to scope rules to specific directories."
+  },
+  {
+    "agent": "claude",
+    "tip": "Claude Code memory is per-project. Each project gets its own memory directory under ~/.claude/projects/ based on the repo path."
+  },
+  {
+    "agent": "claude",
+    "tip": "Add .mcp.json to your project root to configure project-level MCP servers that are shared with your team via git."
+  },
+  {
+    "agent": "claude",
+    "tip": "Use /memory command to explicitly tell Claude to remember something. It gets saved to a markdown file you can review and edit."
+  },
+  {
+    "agent": "claude",
+    "tip": "permissions.deny in .claude/settings.json lets you block specific file access patterns — no .claudeignore file needed."
+  },
+  {
+    "agent": "claude",
+    "tip": "CLAUDE.md files in subdirectories are loaded on demand — put API docs next to your API code for better context."
+  },
+  {
+    "agent": "claude",
+    "tip": "Use .claude/settings.local.json for personal preferences that shouldn't be committed to git."
+  },
+  {
+    "agent": "codex",
+    "tip": "Codex uses config.toml (not YAML or JSON) for configuration. Set model, approval policy, and sandbox settings there."
+  },
+  {
+    "agent": "codex",
+    "tip": "AGENTS.override.md takes precedence over AGENTS.md — use it for personal instruction overrides without modifying the team file."
+  },
+  {
+    "agent": "codex",
+    "tip": "Codex walks from project root to your current directory, loading one AGENTS.md per directory level for layered instructions."
+  },
+  {
+    "agent": "codex",
+    "tip": "Set project_doc_fallback_filenames in config.toml to make Codex read custom instruction filenames like CLAUDE.md or README.md."
+  },
+  {
+    "agent": "codex",
+    "tip": "Codex respects .gitignore for context exclusion. There's no separate .codexignore file — use .gitignore patterns instead."
+  },
+  {
+    "agent": "gemini",
+    "tip": "Put GEMINI.md in subdirectories for directory-scoped instructions. Gemini discovers up to 200 directories by default."
+  },
+  {
+    "agent": "gemini",
+    "tip": "Increase context.discoveryMaxDirs in settings.json if Gemini isn't finding your subdirectory GEMINI.md files in large projects."
+  },
+  {
+    "agent": "gemini",
+    "tip": "The context.fileName setting in ~/.gemini/settings.json lets you rename GEMINI.md to any filename you prefer."
+  },
+  {
+    "agent": "gemini",
+    "tip": "Use .geminiignore in your project root (gitignore-style patterns) to exclude files from Gemini's context."
+  },
+  {
+    "agent": "gemini",
+    "tip": "Gemini CLI supports .gemini/.env for project-level environment variables — loaded automatically from project and parent directories."
+  },
+  {
+    "agent": "gemini",
+    "tip": "Use the /memory command in Gemini CLI to dynamically add or refresh persistent context within a session."
+  },
+  {
+    "agent": "cursor",
+    "tip": ".cursor/rules/*.mdc files support YAML frontmatter with a paths: field for glob-based rule scoping (e.g., only apply to src/api/**)."
+  },
+  {
+    "agent": "cursor",
+    "tip": "Rules in .cursor/rules/ can be set to alwaysApply, auto-attached by glob, agent-requested by description, or manual reference."
+  },
+  {
+    "agent": "cursor",
+    "tip": ".cursorignore blocks files from indexing, Tab, Agent, and @-mentions — but not from terminal commands or MCP tools."
+  },
+  {
+    "agent": "cursor",
+    "tip": "Use .cursorindexingignore to exclude files from search indexing only while still keeping them accessible to the AI."
+  },
+  {
+    "agent": "cursor",
+    "tip": "Cursor reads AGENTS.md as a simple alternative to .cursor/rules/ — useful for cross-tool instruction files."
+  },
+  {
+    "agent": "cursor",
+    "tip": "Configure MCP servers per-project in .cursor/mcp.json or globally in ~/.cursor/mcp.json."
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Antigravity stores its data under ~/.gemini/antigravity/ — including conversation history, knowledge base, and MCP config."
+  },
+  {
+    "agent": "antigravity",
+    "tip": "When both GEMINI.md and AGENTS.md exist in a directory, Antigravity gives GEMINI.md higher precedence."
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Enable 'Load nested AGENTS.md files' in Antigravity Settings to pick up instruction files in subdirectories."
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Use .agents/rules/ in your project for organizing multiple workspace rule files that Antigravity loads automatically."
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Antigravity supports .agents/workflows/ for step-by-step automation recipes — great for repetitive multi-step tasks."
+  },
+  {
+    "agent": "copilot",
+    "tip": "Create .github/instructions/*.instructions.md files with applyTo frontmatter for path-specific Copilot instructions."
+  },
+  {
+    "agent": "copilot",
+    "tip": ".github/prompts/*.prompt.md files are reusable prompt templates you can reference in Copilot Chat conversations."
+  },
+  {
+    "agent": "copilot",
+    "tip": "Copilot content exclusion is managed through GitHub organization/repository admin settings, not a local ignore file."
+  },
+  {
+    "agent": "copilot",
+    "tip": "GitHub Copilot CLI stores MCP server config in ~/.copilot/mcp-config.json for global and copilot/mcp-config.json for per-project."
+  },
+  {
+    "agent": "copilot",
+    "tip": "Copilot now reads AGENTS.md files — you can share a single instruction file across Copilot, Codex, Cursor, and Antigravity."
+  },
+  {
+    "agent": "general",
+    "tip": "AGENTS.md is becoming a cross-tool standard — supported by Codex, Cursor, Antigravity, and Copilot. Great for multi-agent projects."
+  },
+  {
+    "agent": "general",
+    "tip": "Most coding agents load instruction files hierarchically — put broad rules at the project root and specific rules in subdirectories."
+  },
+  {
+    "agent": "general",
+    "tip": "MCP (Model Context Protocol) servers work across Claude, Cursor, Gemini, and Copilot — configure once, use everywhere."
+  },
+  {
+    "agent": "general",
+    "tip": "Keep agent-specific rules in their native formats (.cursor/rules/, CLAUDE.md) and shared rules in AGENTS.md for maximum compatibility."
+  },
+  {
+    "agent": "general",
+    "tip": "Use HarnessKit's Audit feature regularly to check extensions for potential security issues like prompt injection or credential theft."
+  }
+]
