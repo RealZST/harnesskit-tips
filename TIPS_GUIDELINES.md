@@ -18,6 +18,7 @@
 - Good: "Override any config key at runtime with -c key=value" — this tells users what to DO
 - Avoid tips that merely describe: storage locations, loading order, file precedence rules, or what files a tool reads
 - If a mechanism is worth mentioning, frame it as a trick: "Put API-specific rules in subdirectory CLAUDE.md files — they load on demand only when Claude works in that directory, saving context tokens"
+- Prefer high-leverage interaction tips over config trivia when possible: slash commands, mention syntax, prompt prefixes, pickers, and workflow shortcuts usually make better Tip of the Day content than one-off config keys
 
 ### No Self-Promotion
 - Do not include tips about HarnessKit — it is our own product
@@ -29,12 +30,11 @@
 - Official documentation (e.g., code.claude.com/docs, developers.openai.com, docs.cursor.com)
 - Official blogs (e.g., github.blog, developers.googleblog.com)
 - Official repository docs (e.g., github.com/google-gemini/gemini-cli/docs)
-- Official DevRel blogs (e.g., atamel.dev — Google Developer Advocate)
 
 ### Rejected Sources
 - Product promotion websites (e.g., agents.md — promotes its own standard)
 - SEO blogs or content farms (e.g., thepromptshelf.dev, antigravity.codes)
-- Personal blogs (unless the author is an official DevRel)
+- Personal blogs, including DevRel blogs on personal domains
 - Unverified community posts
 
 ### Source Field

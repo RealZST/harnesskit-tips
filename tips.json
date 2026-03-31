@@ -21,8 +21,8 @@
   },
   {
     "agent": "claude",
-    "tip": "permissions.deny rules apply to Claude's built-in file tools (Read, Edit), not to Bash subprocesses. A deny rule blocks the Read tool but does not prevent cat .env in Bash. For OS-level enforcement, enable the sandbox.",
-    "source": "https://code.claude.com/docs/en/permissions"
+    "tip": "Type / in Claude Code to open the command menu, then keep typing to filter. The / menu shows both built-in commands and bundled skills like /simplify.",
+    "source": "https://code.claude.com/docs/en/interactive-mode"
   },
   {
     "agent": "claude",
@@ -41,8 +41,8 @@
   },
   {
     "agent": "claude",
-    "tip": "Add \"$schema\": \"https://json.schemastore.org/claude-code-settings.json\" to settings.json to enable autocomplete and inline validation in VS Code, Cursor, or any editor that supports JSON schema.",
-    "source": "https://code.claude.com/docs/en/settings"
+    "tip": "Start a prompt with ! to run a command directly in Bash mode and add its execution output to the session. Start with @ to trigger file path autocomplete.",
+    "source": "https://code.claude.com/docs/en/interactive-mode"
   },
   {
     "agent": "claude",
@@ -51,8 +51,8 @@
   },
   {
     "agent": "codex",
-    "tip": "Codex uses config.toml (not YAML or JSON) for configuration. Set model, approval policy, and sandbox settings there.",
-    "source": "https://developers.openai.com/codex/config-basic"
+    "tip": "Run /skills or type $ to mention a skill explicitly in Codex. Codex can also activate a skill automatically when your task matches the skill description.",
+    "source": "https://developers.openai.com/codex/skills"
   },
   {
     "agent": "codex",
@@ -61,13 +61,13 @@
   },
   {
     "agent": "codex",
-    "tip": "Set project_doc_fallback_filenames in config.toml to make Codex read custom instruction filenames when AGENTS.md is missing.",
-    "source": "https://developers.openai.com/codex/guides/agents-md"
+    "tip": "Use /mcp to list the MCP servers and tools available in the current Codex session before you ask Codex to use one.",
+    "source": "https://developers.openai.com/codex/cli/slash-commands"
   },
   {
     "agent": "codex",
-    "tip": "Codex uses .gitignore to filter the @ file picker, but gitignored files can still be read by the agent via tools and shell commands. A .codexignore feature has been requested but has no official timeline.",
-    "source": "https://github.com/openai/codex/issues/2847"
+    "tip": "Use /mention followed by a path, such as /mention src/lib/api.ts, then pick the match from the popup. Codex adds that file to the conversation so follow-up turns can refer to it directly.",
+    "source": "https://developers.openai.com/codex/cli/slash-commands"
   },
   {
     "agent": "codex",
@@ -81,143 +81,148 @@
   },
   {
     "agent": "codex",
-    "tip": "Codex can strip env vars matching KEY, SECRET, or TOKEN from agent-spawned commands, but this is disabled by default. Enable it with ignore_default_excludes = false under [shell_environment_policy] in config.toml.",
-    "source": "https://github.com/openai/codex/blob/main/codex-rs/core/src/exec_env.rs"
+    "tip": "Run /review after a coding pass to ask Codex for a working-tree review, then follow up with /diff if you want to inspect the exact edits. /review focuses on behavior changes and missing tests.",
+    "source": "https://developers.openai.com/codex/cli/slash-commands"
   },
   {
     "agent": "gemini",
-    "tip": "Increase context.discoveryMaxDirs in settings.json if Gemini isn't finding your subdirectory GEMINI.md files in large projects.",
-    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
-  },
-  {
-    "agent": "gemini",
-    "tip": "The context.fileName setting in settings.json lets you change the default context file name — it accepts a single string or an array of filenames (e.g., [\"AGENTS.md\", \"CONTEXT.md\", \"GEMINI.md\"]).",
-    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-md.md"
-  },
-  {
-    "agent": "gemini",
-    "tip": "Use .geminiignore in your project root (gitignore-style patterns) to exclude files from tools that support this feature, such as the @ file-sharing command.",
-    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/gemini-ignore.md"
-  },
-  {
-    "agent": "gemini",
-    "tip": "Use the /memory command in Gemini CLI to dynamically add or refresh persistent context within a session.",
+    "tip": "Type @path/to/file or @path/to/directory in Gemini CLI to inject that file or directory into your prompt. @ uses git-aware filtering, so ignored folders like node_modules/ and .git/ are skipped by default.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
   },
   {
     "agent": "gemini",
-    "tip": "Create .toml files in .gemini/commands/ for custom slash commands. Use !{git diff --staged} for shell injection and @{docs/guide.md} for file injection in prompts.",
+    "tip": "Prefix input with ! to run a shell command directly from Gemini CLI. Type ! on its own to toggle shell mode when you want to fire off several commands in a row.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Use /chat save <tag> before a risky change, then /chat resume <tag> to continue later. Gemini stores those checkpoints per project, so reopen the same repo directory before resuming.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Run /compress when a session gets long. Gemini replaces the full chat context with a summary so future turns use fewer tokens.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Use /memory add <text> to record a decision mid-session, and /memory refresh after editing GEMINI.md files outside the CLI.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Put reusable prompts in ~/.gemini/commands/ for global use or .gemini/commands/ to share them with the repo. A file like .gemini/commands/git/commit.toml becomes the /git:commit command.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/custom-commands.md"
   },
   {
     "agent": "gemini",
-    "tip": "Set context.memoryBoundaryMarkers in settings.json to control where upward GEMINI.md discovery stops. The default is [\".git\"]; add markers like \"package.json\" to prevent traversal above sub-project roots in monorepos.",
-    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
-  },
-  {
-    "agent": "gemini",
-    "tip": "GEMINI.md supports modular imports via @./path/to/file.md syntax — with circular-import detection and up to 5 levels of nesting.",
-    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/memport.md"
+    "tip": "Inside a custom Gemini command, !{...} injects shell output and @{...} injects file contents before the prompt is sent. That makes commands like /git:commit or /review much more useful.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/custom-commands.md"
   },
   {
     "agent": "cursor",
-    "tip": ".cursor/rules/ files (.md or .mdc) support frontmatter with globs: and alwaysApply: fields to control how rules are applied.",
-    "source": "https://docs.cursor.com/context/rules"
-  },
-  {
-    "agent": "cursor",
-    "tip": "Rules in .cursor/rules/ have four modes: Always Apply (every session), Apply Intelligently (agent decides based on description), Apply to Specific Files (glob match), or Apply Manually (@-mentioned in chat).",
-    "source": "https://docs.cursor.com/context/rules"
-  },
-  {
-    "agent": "cursor",
-    "tip": ".cursorignore blocks files from semantic search, Tab, Agent, Inline Edit, and @-mention references — but not from terminal commands or MCP server tools.",
-    "source": "https://docs.cursor.com/context/ignore-files"
-  },
-  {
-    "agent": "cursor",
-    "tip": "Use .cursorindexingignore to exclude files from codebase searches while still keeping them accessible to AI features.",
-    "source": "https://docs.cursor.com/context/ignore-files"
-  },
-  {
-    "agent": "cursor",
-    "tip": "Cursor reads AGENTS.md as a simple alternative to .cursor/rules/, with support for nested AGENTS.md files in subdirectories.",
-    "source": "https://docs.cursor.com/context/rules"
-  },
-  {
-    "agent": "cursor",
-    "tip": "Configure MCP servers per-project in .cursor/mcp.json or globally in ~/.cursor/mcp.json.",
-    "source": "https://docs.cursor.com/context/mcp"
-  },
-  {
-    "agent": "cursor",
-    "tip": "Press Cmd+Right (Mac) or Ctrl+Right to accept a Tab suggestion word-by-word. Separately, after accepting any Tab suggestion, press Tab again to jump to the predicted next edit location.",
-    "source": "https://docs.cursor.com/tab/overview"
-  },
-  {
-    "agent": "cursor",
-    "tip": "Use @Docs > Add new doc in Cursor Chat to index external documentation for reference. Manage indexed docs under Cursor Settings > Features > Docs.",
+    "tip": "Type @Docs in chat to browse indexed documentation. If a library is missing, choose Add new doc, paste the docs URL, and Cursor will index that site and its subpages.",
     "source": "https://docs.cursor.com/context/@-symbols/@-docs"
   },
   {
-    "agent": "antigravity",
-    "tip": "Enable 'Load nested AGENTS.md files' in Antigravity Settings to pick up instruction files in subdirectories.",
-    "source": "https://antigravity.google/docs/rules-workflows"
+    "agent": "cursor",
+    "tip": "Press Ctrl+T to open a fresh Agent tab for a separate task. Each tab keeps its own history, context, and model, and you can pull context from another thread with @Past Chats.",
+    "source": "https://docs.cursor.com/agent/chat/tabs"
+  },
+  {
+    "agent": "cursor",
+    "tip": "Use /Generate Cursor Rules in chat when you notice yourself repeating guidance. Cursor can turn that guidance into a reusable project rule instead of making you restate it every session.",
+    "source": "https://docs.cursor.com/context/rules"
+  },
+  {
+    "agent": "cursor",
+    "tip": "Type @Cursor Rules in chat when you want to explicitly apply one of your project rules to the current request.",
+    "source": "https://docs.cursor.com/context/@-symbols/@-cursor-rules"
+  },
+  {
+    "agent": "cursor",
+    "tip": "Put sensitive or irrelevant paths in .cursorignore. Cursor blocks those files from indexing, Tab, Agent, Inline Edit, and @ references, though terminal and MCP tools can still reach them.",
+    "source": "https://docs.cursor.com/context/ignore-files"
+  },
+  {
+    "agent": "cursor",
+    "tip": "Configure project-specific MCP servers in .cursor/mcp.json and global ones in ~/.cursor/mcp.json. In the CLI, run cursor-agent mcp list to see what is currently configured.",
+    "source": "https://docs.cursor.com/cli/mcp"
+  },
+  {
+    "agent": "cursor",
+    "tip": "Press Cmd/Ctrl+K in the editor to inline-edit selected code. Use Alt+Enter for a quick question first, or Cmd/Ctrl+L to send the selection to chat when the change spans multiple files.",
+    "source": "https://docs.cursor.com/cmdk"
+  },
+  {
+    "agent": "cursor",
+    "tip": "In Cursor terminal, press Cmd/Ctrl+K and describe the command you want in natural language. Cursor generates the terminal command using your recent terminal history and current instructions as context.",
+    "source": "https://docs.cursor.com/inline-edit/terminal"
   },
   {
     "agent": "antigravity",
-    "tip": "Use .agent/rules/ in your project for organizing multiple workspace rule files that Antigravity loads automatically.",
-    "source": "https://atamel.dev/posts/2025/11-25_customize_antigravity_rules_workflows/"
-  },
-  {
-    "agent": "antigravity",
-    "tip": "Antigravity supports .agent/workflows/ for step-by-step automation recipes that you can trigger on demand with / as you interact with the agent.",
-    "source": "https://atamel.dev/posts/2025/11-25_customize_antigravity_rules_workflows/"
-  },
-  {
-    "agent": "antigravity",
-    "tip": "Add // turbo above a workflow step to auto-execute that command without approval prompts, or // turbo-all anywhere in the file to skip prompts for all steps.",
+    "tip": "Press Cmd + I in the editor or terminal to ask for inline help in natural language. In the editor it can draft code in place, and in the terminal it can suggest commands.",
     "source": "https://codelabs.developers.google.com/getting-started-google-antigravity"
   },
   {
     "agent": "antigravity",
-    "tip": "Set the Terminal Command Auto Execution policy to 'Request Review' in Antigravity Settings for a positive security model where only explicitly allow-listed commands can run without approval.",
+    "tip": "Press Cmd + L to open the agent side panel from the editor. In that chat, use @ to attach files, directories, or MCP servers, and you can also send selected terminal output to the agent with the same shortcut.",
+    "source": "https://codelabs.developers.google.com/getting-started-google-antigravity"
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Use / in the agent panel to trigger a saved workflow on demand. The codelab shows workspace workflows surfacing as slash commands such as /generate-unit-tests.",
+    "source": "https://codelabs.developers.google.com/getting-started-google-antigravity"
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Pick Fast for quick localized tasks and Planning when you want the agent to produce a plan you can approve before it edits code.",
+    "source": "https://codelabs.developers.google.com/getting-started-google-antigravity"
+  },
+  {
+    "agent": "antigravity",
+    "tip": "When the agent edits code, you can Accept all or Reject all directly from the side panel, or open Review changes to inspect diffs and leave comments.",
+    "source": "https://codelabs.developers.google.com/getting-started-google-antigravity"
+  },
+  {
+    "agent": "antigravity",
+    "tip": "Set Terminal Command Auto Execution to Request Review and use the Allow List for safe commands you want auto-approved. Google's codelab describes this as the positive security model.",
     "source": "https://codelabs.developers.google.com/getting-started-google-antigravity"
   },
   {
     "agent": "copilot",
-    "tip": "Create .github/instructions/*.instructions.md files with applyTo frontmatter for path-specific Copilot instructions.",
-    "source": "https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions"
-  },
-  {
-    "agent": "copilot",
-    "tip": ".github/prompts/*.prompt.md files are reusable prompt templates you can reference in Copilot Chat via / followed by the prompt name.",
-    "source": "https://code.visualstudio.com/docs/copilot/customization/prompt-files"
-  },
-  {
-    "agent": "copilot",
-    "tip": "Copilot content exclusion is managed through GitHub organization/repository admin settings, not a local ignore file.",
-    "source": "https://docs.github.com/en/copilot/how-tos/configure-content-exclusion/exclude-content-from-copilot"
-  },
-  {
-    "agent": "copilot",
-    "tip": "GitHub Copilot CLI stores MCP server config in ~/.copilot/mcp-config.json. Configure it directly or use the /mcp add command.",
-    "source": "https://docs.github.com/en/copilot/how-tos/copilot-cli/customize-copilot/add-mcp-servers"
-  },
-  {
-    "agent": "copilot",
-    "tip": "Add copilot-setup-steps.yml to .github/workflows/ to preinstall tools and dependencies in the coding agent's environment before it starts working.",
-    "source": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-environment"
-  },
-  {
-    "agent": "copilot",
-    "tip": "Use #read/terminalLastCommand in Copilot Chat to attach the last terminal command and its output as context — no copy-pasting needed.",
+    "tip": "Type / in Copilot Chat to browse slash commands for common tasks. In VS Code that includes commands like /fix, /fixTestFailure, /new, and /newNotebook.",
     "source": "https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features"
   },
   {
     "agent": "copilot",
-    "tip": "Use github.copilot.chat.commitMessageGeneration.instructions in VS Code settings to enforce Conventional Commits or any format for the sparkle-button commit messages.",
-    "source": "https://code.visualstudio.com/docs/copilot/customization/custom-instructions"
+    "tip": "Type # in Copilot Chat to attach context such as files, folders, symbols, or tools without rewriting your prompt by hand.",
+    "source": "https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features"
+  },
+  {
+    "agent": "copilot",
+    "tip": "Use #read/terminalLastCommand to attach the last terminal command and its output right after a failed build or test.",
+    "source": "https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features"
+  },
+  {
+    "agent": "copilot",
+    "tip": "Use @terminal for shell-specific questions in chat, and pair it with /explain when you want Copilot to interpret a terminal command or error instead of just suggesting a fix.",
+    "source": "https://code.visualstudio.com/docs/copilot/reference/copilot-vscode-features"
+  },
+  {
+    "agent": "copilot",
+    "tip": "Save reusable prompts in .github/prompts/*.prompt.md, then run them from chat with /prompt-name. GitHub's own tutorial shows explain-code.prompt.md becoming /explain-code.",
+    "source": "https://docs.github.com/en/copilot/tutorials/customization-library/prompt-files/your-first-prompt-file"
+  },
+  {
+    "agent": "copilot",
+    "tip": "Put repo-wide guidance in .github/copilot-instructions.md and path-specific guidance in .github/instructions/*.instructions.md. Copilot automatically combines them when the current file matches the applyTo glob.",
+    "source": "https://docs.github.com/en/copilot/how-tos/configure-custom-instructions/add-repository-instructions"
+  },
+  {
+    "agent": "copilot",
+    "tip": "In Copilot CLI, use @relative/path to inject a file, !command to run shell directly, and copilot --continue or /resume to reopen a session with saved context.",
+    "source": "https://docs.github.com/en/copilot/how-tos/copilot-cli/use-copilot-cli-agents/overview"
   },
   {
     "agent": "claude",
