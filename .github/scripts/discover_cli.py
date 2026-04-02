@@ -107,16 +107,30 @@ def gh_put(url: str, payload: dict):
 
 
 def load_exclusion_set() -> set[str]:
-    registry_path = Path(__file__).resolve().parent.parent.parent / "cli-registry" / "registry.json"
+    base = Path(__file__).resolve().parent.parent.parent / "cli-registry"
+    excluded: set[str] = set()
+
+    # From registry.json (already accepted)
+    registry_path = base / "registry.json"
     print(f"Loading registry from {registry_path}")
     try:
         with open(registry_path) as f:
             registry = json.load(f)
+        excluded.update(entry["skills_repo"].lower() for entry in registry if entry.get("skills_repo"))
     except (FileNotFoundError, json.JSONDecodeError) as exc:
-        print(f"Warning: could not load registry ({exc}), using empty exclusion set")
-        return set()
-    excluded = {entry["skills_repo"].lower() for entry in registry if entry.get("skills_repo")}
-    print(f"Exclusion set ({len(excluded)} repos): {excluded}")
+        print(f"Warning: could not load registry ({exc})")
+
+    # From excluded.json (previously rejected)
+    excluded_path = base / "excluded.json"
+    print(f"Loading exclusions from {excluded_path}")
+    try:
+        with open(excluded_path) as f:
+            excluded_list = json.load(f)
+        excluded.update(entry["repo"].lower() for entry in excluded_list if entry.get("repo"))
+    except (FileNotFoundError, json.JSONDecodeError) as exc:
+        print(f"Warning: could not load excluded.json ({exc})")
+
+    print(f"Total exclusion set ({len(excluded)} repos)")
     return excluded
 
 

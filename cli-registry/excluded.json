@@ -1,0 +1,19 @@
+[
+  { "repo": "Dicklesworthstone/mcp_agent_mail", "reason": "MCP server for agent coordination, not a CLI tool" },
+  { "repo": "PleasePrompto/notebooklm-skill", "reason": "Claude Code Skill (scripts + SKILL.md), not a standalone CLI" },
+  { "repo": "steipete/summarize", "reason": "Human-facing summarization CLI, not agent-first" },
+  { "repo": "lukilabs/craft-agents-oss", "reason": "Electron desktop GUI app, not a CLI tool" },
+  { "repo": "danielmiessler/Fabric", "reason": "Human-facing AI prompt framework" },
+  { "repo": "langchain-ai/deepagents", "reason": "Is an AI agent framework, not a tool for agents" },
+  { "repo": "sigoden/aichat", "reason": "Human-facing interactive LLM chat CLI" },
+  { "repo": "MrLesk/Backlog.md", "reason": "Human-facing task manager with AI integration" },
+  { "repo": "entireio/cli", "reason": "Human-facing observability tool for AI agent sessions" },
+  { "repo": "docker/docker-agent", "reason": "AI agent framework/runtime, not a tool for agents" },
+  { "repo": "micro/go-micro", "reason": "Microservices framework, agent features are secondary" },
+  { "repo": "MightyMoud/sidekick", "reason": "Human-facing VPS deployment tool, no agent relevance" },
+  { "repo": "wanshuiyin/Auto-claude-code-research-in-sleep", "reason": "Markdown skills, not a CLI tool" },
+  { "repo": "browseros-ai/BrowserOS", "reason": "Desktop GUI browser, CLI is secondary" },
+  { "repo": "mksglu/context-mode", "reason": "Agent-first design but Elastic License 2.0, not open source" },
+  { "repo": "openclaw/openclaw", "reason": "Is an AI assistant product, not a tool for agents" },
+  { "repo": "ollama/ollama", "reason": "LLM inference infrastructure, not an agent capability tool" }
+]
