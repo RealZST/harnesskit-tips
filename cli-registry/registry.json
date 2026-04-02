@@ -102,5 +102,44 @@
     "verified": false,
     "api_domains": [],
     "credentials_path": null
+  },
+  {
+    "binary_name": "agent-browser",
+    "display_name": "Agent Browser",
+    "description": "Browser automation CLI for AI agents — CDP snapshots, screenshots, form interaction, and session management",
+    "install_command": "npm install -g agent-browser",
+    "skills_repo": "vercel-labs/agent-browser",
+    "skills_install_command": "npx skills add vercel-labs/agent-browser",
+    "icon_url": null,
+    "categories": ["browser-automation", "web-testing"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": "~/.agent-browser/sessions/"
+  },
+  {
+    "binary_name": "rtk",
+    "display_name": "RTK",
+    "description": "CLI proxy that filters and compresses command output — reduces LLM token consumption by 60-90% on common dev commands",
+    "install_command": "brew install rtk",
+    "skills_repo": "rtk-ai/rtk",
+    "skills_install_command": null,
+    "icon_url": null,
+    "categories": ["token-optimization", "developer-tools", "cli-proxy"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "open-pencil",
+    "display_name": "OpenPencil",
+    "description": "Open-source design editor CLI — inspect, lint, export, and script .fig and .pen design files with JSON output",
+    "install_command": "bun add -g @open-pencil/cli",
+    "skills_repo": "open-pencil/open-pencil",
+    "skills_install_command": "npx skills add open-pencil/skills@open-pencil",
+    "icon_url": null,
+    "categories": ["design-tools", "figma"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
   }
 ]
