@@ -228,5 +228,50 @@
     "agent": "claude",
     "tip": "Claude Code reads CLAUDE.md, not AGENTS.md. If your repo uses AGENTS.md for other agents, create a CLAUDE.md that imports it with @AGENTS.md so both tools read the same instructions.",
     "source": "https://code.claude.com/docs/en/memory"
+  },
+  {
+    "agent": "claude",
+    "tip": "Run /init and choose the personal option to create a CLAUDE.local.md for private instructions. It automatically adds the file to .gitignore so it won't be committed.",
+    "source": "https://code.claude.com/docs/en/memory"
+  },
+  {
+    "agent": "claude",
+    "tip": "Add the -p (or --print) flag to any claude command to run it non-interactively. Combine with --output-format json for scripting and CI workflows.",
+    "source": "https://code.claude.com/docs/en/headless"
+  },
+  {
+    "agent": "claude",
+    "tip": "Run /init to auto-generate a starting CLAUDE.md for your project. It scans the codebase and creates a tailored set of initial instructions.",
+    "source": "https://code.claude.com/docs/en/memory"
+  },
+  {
+    "agent": "claude",
+    "tip": "Enable vim-style key bindings for the input editor via /config → Editor mode.",
+    "source": "https://code.claude.com/docs/en/interactive-mode"
+  },
+  {
+    "agent": "claude",
+    "tip": "Press Ctrl+T to toggle the task list view, showing all tasks Claude is tracking in the current session.",
+    "source": "https://code.claude.com/docs/en/interactive-mode"
+  },
+  {
+    "agent": "claude",
+    "tip": "Use --allowedTools with -p to let Claude use specific tools without prompting for approval, ideal for CI and automation scripts.",
+    "source": "https://code.claude.com/docs/en/headless"
+  },
+  {
+    "agent": "claude",
+    "tip": "Use --continue to pick up the most recent conversation, or --resume with a session ID to return to a specific past session.",
+    "source": "https://code.claude.com/docs/en/headless"
+  },
+  {
+    "agent": "claude",
+    "tip": "Type /hooks in Claude Code to open a read-only browser showing all your configured hooks, their events, and commands.",
+    "source": "https://code.claude.com/docs/en/hooks"
+  },
+  {
+    "agent": "codex",
+    "tip": "Use ~/.codex/AGENTS.override.md for a temporary global instruction override without modifying or deleting the base AGENTS.md file.",
+    "source": "https://developers.openai.com/codex/guides/agents-md"
   }
 ]
