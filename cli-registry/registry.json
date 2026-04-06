@@ -141,5 +141,18 @@
     "verified": false,
     "api_domains": [],
     "credentials_path": null
+  },
+  {
+    "binary_name": "playwright-cli",
+    "display_name": "Playwright CLI",
+    "description": "CLI for browser automation — snapshots, screenshots, clicks, form filling, network mocking, and session management for AI agents",
+    "install_command": "npm install -g @playwright/cli",
+    "skills_repo": "microsoft/playwright-cli",
+    "skills_install_command": "playwright-cli install --skills",
+    "icon_url": null,
+    "categories": ["browser-automation", "web-testing"],
+    "verified": true,
+    "api_domains": [],
+    "credentials_path": null
   }
 ]
