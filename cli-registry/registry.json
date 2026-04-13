@@ -154,5 +154,18 @@
     "verified": true,
     "api_domains": [],
     "credentials_path": null
+  },
+  {
+    "binary_name": "gbrain",
+    "display_name": "GBrain",
+    "description": "CLI for personal knowledge management — meetings, emails, calendar, voice notes, and timeline with vector search for AI agents",
+    "install_command": "git clone https://github.com/garrytan/gbrain.git && cd gbrain && bun install && bun link",
+    "skills_repo": "garrytan/gbrain",
+    "skills_install_command": null,
+    "icon_url": null,
+    "categories": ["personal-knowledge", "productivity"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
   }
 ]

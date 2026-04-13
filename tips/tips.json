@@ -273,5 +273,50 @@
     "agent": "codex",
     "tip": "Use ~/.codex/AGENTS.override.md for a temporary global instruction override without modifying or deleting the base AGENTS.md file.",
     "source": "https://developers.openai.com/codex/guides/agents-md"
+  },
+  {
+    "agent": "claude",
+    "tip": "Start Claude Code with --debug-file <path> to write the debug log to a specific file, or use --debug to write it to ~/.claude/debug/<session-id>.txt.",
+    "source": "https://code.claude.com/docs/en/hooks"
+  },
+  {
+    "agent": "codex",
+    "tip": "Run codex --ask-for-approval never \"Summarize the current instructions.\" to verify that Codex is loading your AGENTS.md files correctly — it should quote the items before proposing work.",
+    "source": "https://developers.openai.com/codex/guides/agents-md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Use --sandbox (or -s) when launching Gemini CLI to enable sandbox mode for the session, restricting file system and network access.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Type /editor in Gemini CLI to open a dialog for selecting your preferred code editor.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Type /vim in Gemini CLI to toggle vim-style key bindings for the input editor on or off.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/commands.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Use --approval-mode=yolo instead of the deprecated --yolo flag when launching Gemini CLI for fully autonomous execution.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Use gemini -e none to launch with all extensions disabled, useful for debugging or getting a clean session.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/configuration.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Create custom policy files in ~/.gemini/policies/ (e.g., my-rules.toml) to define fine-grained allow/deny rules for tools and file access.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/reference/policy-engine.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Press Ctrl+X when Gemini CLI presents a plan for review to open it in your configured external editor for detailed inspection and editing.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/plan-mode.md"
   }
 ]
