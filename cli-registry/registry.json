@@ -167,5 +167,57 @@
     "verified": false,
     "api_domains": [],
     "credentials_path": null
+  },
+  {
+    "binary_name": "cubox-cli",
+    "display_name": "Cubox CLI",
+    "description": "CLI for Cubox read-later service — save, search, annotate, and RAG-query saved articles and bookmarks with JSON output for AI agents",
+    "install_command": "npm install -g cubox-cli",
+    "skills_repo": "OLCUBO/cubox-cli",
+    "skills_install_command": "npx skills add OLCUBO/cubox-cli -g -y",
+    "icon_url": null,
+    "categories": ["bookmarks", "read-later", "knowledge-management"],
+    "verified": false,
+    "api_domains": ["cubox.pro"],
+    "credentials_path": "~/.config/cubox-cli/config.json"
+  },
+  {
+    "binary_name": "graphify",
+    "display_name": "Graphify",
+    "description": "CLI that turns folders of code, docs, papers, images, and videos into queryable knowledge graphs — with platform-specific skill bundles for Claude Code, Codex, Cursor, Gemini CLI and more",
+    "install_command": "pip install graphifyy",
+    "skills_repo": "safishamsi/graphify",
+    "skills_install_command": "graphify install",
+    "icon_url": null,
+    "categories": ["knowledge-graph", "code-understanding", "rag"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "prowler",
+    "display_name": "Prowler",
+    "description": "CLI for cloud security auditing across AWS, Azure, GCP, Kubernetes, and 13+ more providers — 1,200+ checks mapped to CIS/NIST/PCI-DSS/HIPAA/SOC2, OCSF and SARIF output",
+    "install_command": "pip install prowler",
+    "skills_repo": "prowler-cloud/prowler",
+    "skills_install_command": null,
+    "icon_url": null,
+    "categories": ["security", "cloud", "compliance"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "ctx7",
+    "display_name": "Context7",
+    "description": "CLI for fetching up-to-date, version-specific library documentation and code snippets — covers 30k+ libraries (React, Next.js, Prisma, etc.) to defeat stale training data and hallucinated APIs",
+    "install_command": "npm install -g ctx7",
+    "skills_repo": "upstash/context7",
+    "skills_install_command": "ctx7 setup",
+    "icon_url": null,
+    "categories": ["documentation", "code-assistance"],
+    "verified": false,
+    "api_domains": ["context7.com"],
+    "credentials_path": null
   }
 ]
