@@ -219,5 +219,18 @@
     "verified": false,
     "api_domains": ["context7.com"],
     "credentials_path": null
+  },
+  {
+    "binary_name": "md2wechat",
+    "display_name": "md2wechat",
+    "description": "CLI that converts Markdown to formatted WeChat Official Account articles and uploads to draft box — Go binary with SKILL.md, JSON output, and intent routing for Claude Code/Codex",
+    "install_command": "npm install -g @geekjourneyx/md2wechat",
+    "skills_repo": "geekjourneyx/md2wechat-skill",
+    "skills_install_command": null,
+    "icon_url": null,
+    "categories": ["publishing", "wechat", "content-creation"],
+    "verified": false,
+    "api_domains": ["api.weixin.qq.com"],
+    "credentials_path": "~/.config/md2wechat/config.yaml"
   }
 ]

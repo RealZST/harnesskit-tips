@@ -318,5 +318,30 @@
     "agent": "gemini",
     "tip": "Press Ctrl+X when Gemini CLI presents a plan for review to open it in your configured external editor for detailed inspection and editing.",
     "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/plan-mode.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Type /memory inbox in Gemini CLI to open the auto-memory inbox and review draft skills extracted from previous sessions before accepting them.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/auto-memory.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Type /plan [goal] to enter plan mode for a specific objective, or press Shift+Tab from any prompt to cycle between approval modes.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/plan-mode.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Delete a Gemini session with gemini --delete-session <index|id> from the CLI, or open /resume and press x on the session you want to remove.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/session-management.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Pass --scope workspace to Gemini skill commands to manage workspace-specific skill settings instead of the default user-global scope.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/skills.md"
+  },
+  {
+    "agent": "gemini",
+    "tip": "Set GEMINI_SYSTEM_MD=/path/to/my-system.md (absolute or relative to CWD) to load a custom system prompt file in Gemini CLI.",
+    "source": "https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/system-prompt.md"
   }
 ]

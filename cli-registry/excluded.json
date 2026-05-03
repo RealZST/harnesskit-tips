@@ -101,5 +101,17 @@
   { "repo": "Maneesh-Relanto/Prompt-Run", "reason": "Too niche and new (3 stars), limited utility" },
   { "repo": "lacymorrow/lacy", "reason": "Is an AI shell, not a tool for agents" },
   { "repo": "caixiaoshun/claudex", "reason": "Proxy bridging Claude Code to Codex, not an agent capability tool" },
-  { "repo": "Nibir1/Helix", "reason": "Is an AI-powered shell/CLI, not a tool for agents" }
+  { "repo": "Nibir1/Helix", "reason": "Is an AI-powered shell/CLI, not a tool for agents" },
+  { "repo": "Ataraxy-Labs/sem", "reason": "Real CLI with --json but no real Claude SKILL.md (just contributor doc, no YAML frontmatter); sem setup also modifies global git config — same exclusion pattern as markitdown/crawl4ai/semgrep" },
+  { "repo": "GoogleCloudPlatform/agent-starter-pack", "reason": "Templates for shipping AI agents to Google Cloud, not a tool for agents" },
+  { "repo": "wilsonfreitas/awesome-quant", "reason": "Curated list, not a CLI tool" },
+  { "repo": "primecodez01/Bgpt", "reason": "AI-powered shell assistant (natural language to commands), not a tool for agents" },
+  { "repo": "ask-sol/openagent", "reason": "Open-source coding agent (Claude Code alternative), not a tool for agents" },
+  { "repo": "jamiepine/voicebox", "reason": "Tauri desktop GUI app with MCP/REST surfaces, no standalone CLI binary — same as BrowserOS/mcp_agent_mail exclusions" },
+  { "repo": "getagentseal/codeburn", "reason": "Human-facing interactive TUI dashboard for AI coding cost observability, not an agent tool" },
+  { "repo": "ancilis/ancilis", "reason": "Agent compliance SDK (Python library), not a CLI tool; very low stars (3)" },
+  { "repo": "reallygood83/sukgo", "reason": "Korean human-facing decision-making tool, very low stars and niche" },
+  { "repo": "paperfoot/seedance-cli", "reason": "Too new (12 stars, 2 weeks old), no static SKILL.md (runtime-generated), pay-per-second video generation has real money-burn risk" },
+  { "repo": "metorial/metorial", "reason": "Agent integration platform/SDK monorepo, not a standalone CLI; separate metorial/cli repo is empty" },
+  { "repo": "JuliusBrussee/caveman", "reason": "Claude Code skill that compresses tokens by talking like caveman — is a skill, not a standalone CLI tool" }
 ]
