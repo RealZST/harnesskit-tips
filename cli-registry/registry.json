@@ -232,5 +232,44 @@
     "verified": false,
     "api_domains": ["api.weixin.qq.com"],
     "credentials_path": "~/.config/md2wechat/config.yaml"
+  },
+  {
+    "binary_name": "mem0",
+    "display_name": "mem0 CLI",
+    "description": "CLI for the mem0 universal memory layer for AI agents — full CRUD memory operations (add/search/list/get/update/delete/import) with JSON envelope output for agent consumption",
+    "install_command": "npm install -g @mem0/cli",
+    "skills_repo": "mem0ai/mem0",
+    "skills_install_command": null,
+    "icon_url": null,
+    "categories": ["memory", "agent-infrastructure"],
+    "verified": false,
+    "api_domains": ["api.mem0.ai"],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "neo4j-cli",
+    "display_name": "Neo4j CLI",
+    "description": "Official Neo4j CLI for AI agents — query graphs with Cypher, manage Aura instances, credentials, and embedded skill bundle. JSON/table/toon output, --rw safety gate, EXPLAIN preflight",
+    "install_command": "npm install -g @neo4j-labs/cli",
+    "skills_repo": "neo4j-labs/neo4j-cli",
+    "skills_install_command": "neo4j-cli skill install",
+    "icon_url": null,
+    "categories": ["database", "graph", "developer-tools"],
+    "verified": false,
+    "api_domains": ["console.neo4j.io"],
+    "credentials_path": null
+  },
+  {
+    "binary_name": "siyuan",
+    "display_name": "SiYuan CLI",
+    "description": "Agent-first CLI for SiYuan Note (open-source block-based knowledge base) — 17 API endpoint groups, real SKILL.md with safe-write protocol, JSON output, dry-run, Approval Center",
+    "install_command": "npm install -g @frostime/siyuan-cli",
+    "skills_repo": "frostime/siyuan-cli",
+    "skills_install_command": "siyuan skill install",
+    "icon_url": null,
+    "categories": ["notes", "knowledge-management"],
+    "verified": false,
+    "api_domains": [],
+    "credentials_path": null
   }
 ]

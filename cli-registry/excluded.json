@@ -113,5 +113,12 @@
   { "repo": "reallygood83/sukgo", "reason": "Korean human-facing decision-making tool, very low stars and niche" },
   { "repo": "paperfoot/seedance-cli", "reason": "Too new (12 stars, 2 weeks old), no static SKILL.md (runtime-generated), pay-per-second video generation has real money-burn risk" },
   { "repo": "metorial/metorial", "reason": "Agent integration platform/SDK monorepo, not a standalone CLI; separate metorial/cli repo is empty" },
-  { "repo": "JuliusBrussee/caveman", "reason": "Claude Code skill that compresses tokens by talking like caveman — is a skill, not a standalone CLI tool" }
+  { "repo": "JuliusBrussee/caveman", "reason": "Claude Code skill that compresses tokens by talking like caveman — is a skill, not a standalone CLI tool" },
+  { "repo": "TauricResearch/TradingAgents", "reason": "Multi-agent LLM financial trading framework — same risk class as ccxt (real money exposure) plus is itself an agent framework" },
+  { "repo": "hugohe3/ppt-master", "reason": "No CLI binary, no console_scripts entry — Claude Code plugin/skill + Python helper scripts. README self-describes as 'a workflow (skill) that works inside AI IDEs'. Same pattern as OpenMontage" },
+  { "repo": "craft-ai-agents/craft-agents-oss", "reason": "Same Electron desktop app as previously-excluded lukilabs/craft-agents-oss (just moved orgs); README explicitly says 'preferably non-CLI'" },
+  { "repo": "shareAI-lab/Kode-CLI", "reason": "Same product as previously-excluded shareAI-lab/Kode-Agent (renamed); is an autonomous AI coding agent, not a tool for agents" },
+  { "repo": "baedonguri/aiwitch", "reason": "Multi-account manager for AI CLIs (Codex, Claude Code, Gemini CLI) — manages agent CLIs, not a tool for agents to invoke" },
+  { "repo": "wangzongming/seeed-cli", "reason": "Chinese developer companion CLI, too niche and very low stars (3)" },
+  { "repo": "StringKe/std-ai", "reason": "Cross-tool AI CLI configuration sync utility (across 11 tools), not an agent capability tool" }
 ]
